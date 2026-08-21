@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Website</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+        }
+
+        /* Navbar */
+
+        nav {
+            background: #1e293b;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li {
+            cursor: pointer;
+        }
+
+        nav ul li:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero Section */
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 14px 30px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        /* Cards */
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 50px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 280px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+
+        .card p {
+            color: #64748b;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav>
+        <div class="logo">MyWebsite</div>
+
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Services</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <h1>Build Something Amazing 🚀</h1>
+
+        <p>
+            This is a simple modern website created using HTML and CSS.
+        </p>
+
+        <button>Get Started</button>
+
+    </section>
+
+
+    <!-- Cards -->
+
+    <section class="cards">
+
+        <div class="card">
+            <h2>⚡ Fast</h2>
+            <p>
+                Build fast and modern web applications.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>🎨 Beautiful</h2>
+            <p>
+                Create clean and attractive user interfaces.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>🚀 Powerful</h2>
+            <p>
+                Start your journey in web development.
+            </p>
+        </div>
+
+    </section>
+
+</body>
+
+</html>

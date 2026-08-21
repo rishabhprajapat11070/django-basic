@@ -1,8 +1,10 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def aboutUs(request):
-    return HttpResponse("whelcome to rishabh website ")
+    return render(request,"about.html")
     
-def calculatr(request,a,b):
-    sum = a+b
-    return HttpResponse(f"Hello {sum}")
+
+def home(request):
+    return render(request,"index.html")
+    
