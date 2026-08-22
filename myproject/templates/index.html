@@ -1,14 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% extends "base.html" %}
+{% block rishabh %}
 <body>
-      {% for i in numbers %}
-      <h1>{{i.name}} {{i.phone}}</h1>
-      {% endfor %}
+
+    <main class="hero">
+
+        <div class="hero-content">
+
+            <p class="tag">WELCOME TO MY WEBSITE</p>
+
+            <h1>
+                Build Something
+                <span>Amazing.</span>
+            </h1>
+
+            <p class="description">
+                Create beautiful, modern and powerful websites
+                with simple and clean design.
+            </p>
+
+            <div class="buttons">
+                <a href="#" class="primary-btn">Get Started</a>
+                <a href="#" class="secondary-btn">Learn More</a>
+            </div>
+
+        </div>
+
+        <div class="hero-card">
+
+            <div class="card-icon">🚀</div>
+
+            <h2>Creative Ideas</h2>
+
+            <p>
+                Turn your ideas into beautiful digital
+                experiences.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <section class="features">
+
+        <div class="section-title">
+            <p>WHAT WE OFFER</p>
+            <h2>Everything You Need</h2>
+        </div>
+
+        <div class="feature-container">
+
+            <div class="feature-card">
+                <div class="icon">⚡</div>
+                <h3>Fast Performance</h3>
+                <p>
+                    Fast and optimized websites that
+                    provide a smooth experience.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">🎨</div>
+                <h3>Beautiful Design</h3>
+                <p>
+                    Modern and clean designs that look
+                    amazing on every device.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">🔒</div>
+                <h3>Secure</h3>
+                <p>
+                    Build reliable and secure applications
+                    with modern technologies.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
 
 </body>
 </html>
+{% endblock %}

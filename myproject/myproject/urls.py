@@ -21,6 +21,7 @@ from myproject import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.Newpage),
+    path('about/',views.about)
     
 ]
  
