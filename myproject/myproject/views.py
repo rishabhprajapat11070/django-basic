@@ -1,10 +1,42 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-def aboutUs(request):
-    return render(request,"about.html")
-    
+  
 
-def home(request):
-    return render(request,"index.html")
+def Newpage(request):
+    data = {
+        "names":["rishabh","aryan","sandeep"],
+        "numbers":[
+            {"name":"rishabh","phone":12345678},
+            {"name":"raj","phone":334445645},
+            {"name":"raj","phone":334445645},
+            {"name":"rishabh","phone":12345678},
+            {"name":"raj","phone":334445645},
+            {"name":"raj","phone":334445645},
+            {"name":"rishabh","phone":12345678},
+            {"name":"raj","phone":334445645},
+            {"name":"raj","phone":334445645},
+            {"name":"rishabh","phone":12345678},
+            {"name":"raj","phone":334445645},
+            {"name":"raj","phone":334445645},
+            {"name":"rishabh","phone":12345678},
+            {"name":"raj","phone":334445645},
+            {"name":"raj","phone":334445645},
+            {"name":"rishabh","phone":12345678},
+            {"name":"raj","phone":334445645},
+            {"name":"raj","phone":334445645},
+            {"name":"rishabh","phone":12345678},
+            {"name":"raj","phone":334445645},
+            {"name":"raj","phone":334445645},
+            {"name":"rishabh","phone":12345678},
+            {"name":"raj","phone":334445645},
+            {"name":"raj","phone":334445645},
+            {"name":"rishabh","phone":12345678},
+            {"name":"raj","phone":334445645},
+            {"name":"raj","phone":334445645},
+            
+            ]
+        
+        }
+    return render(request,"index.html",data)
     
