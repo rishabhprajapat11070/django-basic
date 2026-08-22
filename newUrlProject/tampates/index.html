@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name — Python Backend Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand"><span class="dot"></span>yourname.dev</a>
+    <nav class="routes">
+      <a href="index.html" class="route active"><span class="verb">GET</span>/home <span class="status-chip">200</span></a>
+      <a href="about.html" class="route"><span class="verb">GET</span>/about</a>
+      <a href="resume.html" class="route"><span class="verb">GET</span>/resume</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">status: open to backend roles</p>
+      <h1>I build the parts of the<br>app nobody sees —<br>and every part depends on.</h1>
+      <p class="lede" style="margin-top:18px;">
+        Python backend developer focused on FastAPI, clean data models, and APIs
+        that hold up under real use. I learn by shipping full projects, not tutorials —
+        auth systems, role-based access, real-time chat, the works.
+      </p>
+      <div class="cta-row" style="margin-top:26px;">
+        <a href="about.html" class="btn primary">View projects →</a>
+        <a href="resume.html" class="btn ghost">See resume</a>
+      </div>
+    </div>
+
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span></span><span></span><span></span>
+        <span class="path">zsh — yourname.dev</span>
+      </div>
+      <div class="terminal-body" id="termBody">
+        <div class="cmd">curl https://yourname.dev/api/status</div>
+        <div class="terminal-json" id="jsonOut"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-head">
+    <h2>What I actually work with</h2>
+    <span class="path">GET /home#stack</span>
+  </div>
+
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="card-head">
+        <span class="verb-tag">CORE</span>
+      </div>
+      <h3>API layer</h3>
+      <p>FastAPI, Pydantic schemas, dependency injection, JWT auth with httponly cookies, role-based access control.</p>
+      <div class="tag-row">
+        <span class="tag">FastAPI</span><span class="tag">Pydantic</span><span class="tag">JWT</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <span class="verb-tag">CORE</span>
+      </div>
+      <h3>Data layer</h3>
+      <p>SQLAlchemy ORM and sessions, schema design across multi-role systems, SQLite and MySQL in production-style setups.</p>
+      <div class="tag-row">
+        <span class="tag">SQLAlchemy</span><span class="tag">SQL</span><span class="tag">MySQL</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <span class="verb-tag">TOOLING</span>
+      </div>
+      <h3>Real-time &amp; frontend</h3>
+      <p>WebSocket-based chat systems, Jinja2 templating, and hand-built HTML/CSS/JS frontends with clean routing.</p>
+      <div class="tag-row">
+        <span class="tag">WebSockets</span><span class="tag">Jinja2</span><span class="tag">JS</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <span class="verb-tag">DATA</span>
+      </div>
+      <h3>Analysis toolkit</h3>
+      <p>Pandas, NumPy, Matplotlib and scikit-learn for the data side of backend-adjacent work.</p>
+      <div class="tag-row">
+        <span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">scikit-learn</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Your Name — built with vanilla HTML &amp; CSS</span>
+  <span><a href="mailto:you@example.com">you@example.com</a> · <a href="#">GitHub</a> · <a href="#">LinkedIn</a></span>
+</footer>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

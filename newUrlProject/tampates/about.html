@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Your Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand"><span class="dot"></span>RISHABH.dev</a>
+    <nav class="routes">
+      <a href="index.html" class="route"><span class="verb">GET</span>/home</a>
+      <a href="about.html" class="route active"><span class="verb">GET</span>/about <span class="status-chip">200</span></a>
+      <a href="resume.html" class="route"><span class="verb">GET</span>/resume</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section style="padding: 56px 0 20px;">
+    <p class="eyebrow">GET /about</p>
+    <h1 style="font-size: clamp(28px,4vw,40px);">A self-taught backend developer,<br>building in public through real projects.</h1>
+    <p class="lede" style="margin-top: 18px;">
+      I didn't come up through a formal CS job — I came up through building things end to end:
+      designing the database, writing the routes, handling auth, fixing the bug that only
+      shows up in production. Backend work is where I'm most at home, and every project below
+      is proof I can ship at a professional level, not just follow a tutorial.
+    </p>
+  </section>
+
+  <div class="section-head">
+    <h2>Projects</h2>
+    <span class="path">GET /about/projects</span>
+  </div>
+
+  <div class="grid" style="gap:20px;">
+
+    <article class="card">
+      <div class="card-head">
+        <span class="verb-tag">GET</span>
+        <span class="endpoint">/projects/jal-sahay</span>
+      </div>
+      <h3>Jal Sahay — Water Complaint Management Portal</h3>
+      <p>
+        A full complaint lifecycle system for water-related civic issues, built with FastAPI,
+        SQLAlchemy, SQLite and Jinja2. Four distinct roles — Citizen, Officer, Field Worker,
+        and Admin — move a complaint through a defined state machine from report to resolution.
+      </p>
+      <p>
+        Auth runs on JWTs stored in httponly cookies. Citizens can attach photo evidence,
+        processed through Pillow before storage. After a security pass, public registration
+        was locked to Citizen-only, and an admin bootstrap CLI script was added so admin
+        accounts are never created through the open signup flow.
+      </p>
+      <div class="tag-row">
+        <span class="tag">FastAPI</span>
+        <span class="tag">SQLAlchemy</span>
+        <span class="tag">SQLite</span>
+        <span class="tag">Jinja2</span>
+        <span class="tag">JWT / httponly cookies</span>
+        <span class="tag">Pillow</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="verb-tag">GET</span>
+        <span class="endpoint">/projects/needbro</span>
+      </div>
+      <h3>NeedBro — Home Services Marketplace</h3>
+      <p>
+        An UrbanClap / Sulekha-style marketplace connecting customers with home service
+        providers, backed by FastAPI, SQLAlchemy and MySQL across roughly 20 database tables
+        and three roles: customer, provider, and admin.
+      </p>
+      <p>
+        Real-time chat between customers and providers runs over WebSockets. The frontend is
+        18 hand-built HTML/CSS/JS pages with clean, readable URL routing — no framework
+        scaffolding, just structured routes and templates. Along the way, I worked through
+        several Windows/PowerShell-specific environment issues that don't show up in most
+        tutorial setups.
+      </p>
+      <div class="tag-row">
+        <span class="tag">FastAPI</span>
+        <span class="tag">SQLAlchemy</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">WebSockets</span>
+        <span class="tag">HTML / CSS / JS</span>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="section-head">
+    <h2>How I work</h2>
+    <span class="path">GET /about/approach</span>
+  </div>
+
+  <div class="log">
+    <div class="log-line">
+      <span class="tstamp">01</span>
+      <span class="lvl info">LEARN</span>
+      <span class="msg">Pick a real, non-trivial product idea — not a to-do app — and scope it like a client would.</span>
+    </div>
+    <div class="log-line">
+      <span class="tstamp">02</span>
+      <span class="lvl info">BUILD</span>
+      <span class="msg">Model the data first, then build the API around it — routes, schemas, and error handling by hand.</span>
+    </div>
+    <div class="log-line">
+      <span class="tstamp">03</span>
+      <span class="lvl ok">HARDEN</span>
+      <span class="msg">Go back and fix what a real security review would flag — access control, auth flow, edge cases.</span>
+    </div>
+    <div class="log-line">
+      <span class="tstamp">04</span>
+      <span class="lvl ok">SHIP</span>
+      <span class="msg"><b>Result:</b> a project that can survive someone actually poking at it, not just a demo.</span>
+    </div>
+  </div>
+
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Your Name — built with vanilla HTML &amp; CSS</span>
+  <span><a href="mailto:you@example.com">you@example.com</a> · <a href="#">GitHub</a> · <a href="#">LinkedIn</a></span>
+</footer>
+
+</body>
+</html>
