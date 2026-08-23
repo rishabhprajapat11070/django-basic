@@ -22,8 +22,8 @@ from newUrlProject import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home),
-    path('resume/', views.resume),
-    path('about/', views.about),
+    path('', views.home,name='home'),
+    path('resume/', views.resume,name='resume'),
+    path('about/', views.about,name='about'),
     
 ]

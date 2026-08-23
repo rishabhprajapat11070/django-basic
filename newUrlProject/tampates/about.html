@@ -7,16 +7,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/static/style.css">
+<link rel="shortcut icon" href="/static/1.jpg" type="image/x-icon">
 </head>
 <body>
 
 <header class="topbar">
   <div class="topbar-inner">
-    <a href="index.html" class="brand"><span class="dot"></span>RISHABH.dev</a>
+    <a href="{% url 'home' %}" class="brand"><span class="dot"></span>RISHABH.dev</a>
     <nav class="routes">
-      <a href="index.html" class="route"><span class="verb">GET</span>/home</a>
-      <a href="about.html" class="route active"><span class="verb">GET</span>/about <span class="status-chip">200</span></a>
-      <a href="resume.html" class="route"><span class="verb">GET</span>/resume</a>
+      <a href="{% url 'home' %}" class="route"><span class="verb">GET</span>/home</a>
+      <a href="{% url 'about' %}" class="route active"><span class="verb">GET</span>/about <span class="status-chip">200</span></a>
+      <a href="{% url 'resume' %}" class="route"><span class="verb">GET</span>/resume</a>
     </nav>
   </div>
 </header>
