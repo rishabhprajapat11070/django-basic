@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .form import userform
+import sys
 
 def home(request):
     return render(request ,'index.html')  
@@ -10,10 +12,12 @@ def resume(request):
     return render(request ,"resume.html")  
   
 def form(request):
+    Form = userform()
     try:
-        a  = request.GET.get("username")
-        b  = request.GET.get("sirname")
-        yourans = f"hello dear {a} {b}"
+        print(request.POST.get("num1"))
+        print(request.POST.get("num2"))
+        print(request.POST.get("gender"))
     except Exception as e:
         print(e)
-    return render(request ,"from.html" ,{"ans":f"hello sir how are you {yourans}"})    
+        
+    return render(request ,"from.html",{"data":Form})    

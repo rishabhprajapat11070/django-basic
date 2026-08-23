@@ -8,13 +8,12 @@
 
 </head>
 <body>
-    <form action="{% url 'form' %}" method="">
-        <h1>hello</h1>
-        <input type="text" name="username" id="usernmae">
-        <input type="text" name="sirname" id="sirname">
+    <form action="{% url 'form' %}" method="post">
+        {% csrf_token %}
 
+        {{data}}
         <input type="submit" >
     </form>
-    <h1>{{ans}}</h1>
+    <!-- <h1>{{ans}}</h1>    -->
 </body>
 </html>
