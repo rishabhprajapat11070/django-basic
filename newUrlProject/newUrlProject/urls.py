@@ -25,5 +25,6 @@ urlpatterns = [
     path('', views.home,name='home'),
     path('resume/', views.resume,name='resume'),
     path('about/', views.about,name='about'),
+    path('form/', views.form,name='form'),
     
 ]
