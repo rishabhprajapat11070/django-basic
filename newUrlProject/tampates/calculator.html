@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<h1>Hello From Calculator</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    
+    <!-- Renders form fields along with any errors automatically -->
+    {{ form.as_p }} 
+    
+    <input type="submit" value="Calculate">
+</form>
+
+<!-- Only display the result if a calculation actually took place -->
+
+    <h1>Result: {{ result }}</h1>
+
+
+</body>
+</html>

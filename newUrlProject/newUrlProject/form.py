@@ -11,3 +11,13 @@ class userform(forms.Form):
     widget=forms.RadioSelect()
 )
     
+class calculator(forms.Form):
+    num1 = forms.IntegerField(widget=forms.TextInput(attrs={"placeholder":"number"}))
+    num2 = forms.IntegerField(widget=forms.TextInput(attrs={"placeholder":"number"}))
+    operations =forms.MultipleChoiceField(choices=[
+        ("+", "+"),
+        ("-", "-"),
+        ("*", "*"),
+        ("/", "/")
+        ])
+    
