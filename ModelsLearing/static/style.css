@@ -1,0 +1,482 @@
+/* ============================================================
+   DESIGN TOKENS
+   Theme: "backend engineer's terminal" — warm charcoal ground,
+   amber terminal accent, green/red as real HTTP status colors.
+   ============================================================ */
+:root {
+  --bg: #14120f;
+  --bg-raised: #1c1a16;
+  --bg-card: #201d18;
+  --border: #34302a;
+  --border-soft: #262319;
+
+  --text: #ede7db;
+  --text-dim: #a49b8a;
+  --text-faint: #6f6656;
+
+  --amber: #e8a33d;
+  --amber-soft: rgba(232, 163, 61, 0.14);
+  --green: #6fd88f;
+  --green-soft: rgba(111, 216, 143, 0.12);
+  --red: #e8607a;
+  --red-soft: rgba(232, 96, 122, 0.12);
+  --blue: #6fb3d8;
+
+  --mono: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --radius: 6px;
+  --max-w: 880px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(232, 163, 61, 0.07), transparent),
+    radial-gradient(ellipse 700px 500px at 100% 0%, rgba(111, 179, 216, 0.05), transparent);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--amber-soft); color: var(--amber); }
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================================
+   TOP BAR — routes styled as real HTTP endpoints, not tabs.
+   The active route carries a 200 badge like a live response.
+   ============================================================ */
+.topbar {
+  border-bottom: 1px solid var(--border-soft);
+  position: sticky;
+  top: 0;
+  background: rgba(20, 18, 15, 0.86);
+  backdrop-filter: blur(10px);
+  z-index: 50;
+}
+
+.topbar-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.brand .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  flex-shrink: 0;
+}
+
+.routes {
+  display: flex;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.route {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text-dim);
+  border: 1px solid transparent;
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+}
+
+.route:hover {
+  color: var(--text);
+  border-color: var(--border);
+  background: var(--bg-raised);
+}
+
+.route .verb {
+  color: var(--text-faint);
+  font-size: 11px;
+}
+
+.route.active {
+  color: var(--amber);
+  border-color: rgba(232, 163, 61, 0.35);
+  background: var(--amber-soft);
+}
+
+.route.active .verb { color: var(--amber); }
+
+.status-chip {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--text-faint);
+  text-transform: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: var(--border);
+}
+
+h1, h2, h3 { font-family: var(--sans); font-weight: 700; letter-spacing: -0.02em; margin: 0; }
+
+h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.08;
+}
+
+h2 {
+  font-size: clamp(22px, 3vw, 28px);
+  margin-bottom: 6px;
+}
+
+.lede {
+  font-size: 17px;
+  color: var(--text-dim);
+  max-width: 60ch;
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 64px 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.section-head .path {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+/* ============================================================
+   HERO — terminal window as the signature element
+   ============================================================ */
+.hero {
+  padding: 72px 0 40px;
+  display: grid;
+  gap: 40px;
+}
+
+.terminal {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px -20px rgba(0,0,0,0.6);
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--bg-raised);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.terminal-bar span {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--border);
+}
+.terminal-bar span:nth-child(1) { background: #e8607a; opacity: .55; }
+.terminal-bar span:nth-child(2) { background: #e8a33d; opacity: .55; }
+.terminal-bar span:nth-child(3) { background: #6fd88f; opacity: .55; }
+
+.terminal-bar .path {
+  margin-left: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+.terminal-body {
+  padding: 22px 22px 26px;
+  font-family: var(--mono);
+  font-size: 13.5px;
+  color: var(--text-dim);
+}
+
+.terminal-body .cmd { color: var(--text); }
+.terminal-body .cmd::before { content: "$ "; color: var(--green); }
+
+.terminal-json { margin-top: 14px; white-space: pre; overflow-x: auto; }
+.k { color: var(--blue); }
+.s { color: var(--amber); }
+.b { color: var(--green); }
+
+.caret {
+  display: inline-block;
+  width: 7px; height: 15px;
+  background: var(--amber);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+.cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+
+.btn {
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 11px 18px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.btn:hover { transform: translateY(-1px); border-color: var(--amber); }
+
+.btn.primary {
+  background: var(--amber);
+  color: #1a1509;
+  border-color: var(--amber);
+  font-weight: 600;
+}
+.btn.primary:hover { background: #f0b25b; }
+
+.btn.ghost { color: var(--text-dim); }
+
+/* ============================================================
+   CARDS — endpoint-style project / info cards
+   ============================================================ */
+.grid { display: grid; gap: 18px; }
+.grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+@media (max-width: 720px) {
+  .grid.cols-2 { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px;
+  transition: border-color .15s ease, transform .15s ease;
+}
+
+.card:hover { border-color: rgba(232,163,61,0.3); transform: translateY(-2px); }
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.verb-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.endpoint {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.card h3 { font-size: 17px; margin: 10px 0 8px; }
+
+.card p { color: var(--text-dim); font-size: 14.5px; margin: 0 0 12px; }
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+
+.tag {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--text-dim);
+  background: var(--bg-raised);
+  border: 1px solid var(--border-soft);
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
+/* ============================================================
+   LOG LINES — for skills / timeline style lists
+   ============================================================ */
+.log {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px 0;
+}
+
+.log-line {
+  display: flex;
+  gap: 12px;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--border-soft);
+  align-items: baseline;
+}
+.log-line:last-child { border-bottom: none; }
+
+.log-line .tstamp { color: var(--text-faint); flex-shrink: 0; }
+.log-line .lvl { flex-shrink: 0; font-weight: 700; }
+.log-line .lvl.info { color: var(--blue); }
+.log-line .lvl.ok { color: var(--green); }
+.log-line .msg { color: var(--text-dim); }
+.log-line .msg b { color: var(--text); font-weight: 600; }
+
+/* ============================================================
+   RESUME-SPECIFIC
+   ============================================================ */
+.resume-block { margin-bottom: 36px; }
+
+.field-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 4px 20px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border-soft);
+  font-size: 14.5px;
+}
+.field-row .key {
+  font-family: var(--mono);
+  color: var(--text-faint);
+  font-size: 12.5px;
+  padding-top: 2px;
+}
+.field-row .val { color: var(--text); }
+.field-row .val .dim { color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .field-row { grid-template-columns: 1fr; gap: 2px; }
+}
+
+.skill-groups { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 640px) { .skill-groups { grid-template-columns: 1fr; } }
+
+.skill-group {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 18px;
+}
+.skill-group .label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.print-btn {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--text-dim);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 9px 14px;
+  cursor: pointer;
+}
+.print-btn:hover { border-color: var(--amber); color: var(--amber); }
+
+@media print {
+  .topbar, .print-btn, footer { display: none !important; }
+  body { background: #fff; color: #111; }
+  .card, .log, .skill-group, .field-row { border-color: #ccc !important; background: #fff !important; }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  border-top: 1px solid var(--border-soft);
+  margin-top: 90px;
+  padding: 28px 0 50px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--text-faint);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+footer a { color: var(--text-dim); text-decoration: none; }
+footer a:hover { color: var(--amber); }
+
+main { padding-bottom: 20px; }
