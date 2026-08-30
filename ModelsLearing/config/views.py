@@ -6,8 +6,9 @@ def home(request):
     return render(request,"about.html")
 
 def your_youtuber(request):
-    listOfyoutuber = FavYoutuber.objects.all()
+    listOfyoutuber = FavYoutuber.objects.all().order_by('-name')
     for i in listOfyoutuber:
         print(i.name)
     return render(request,'fav.html',{'youtuber':listOfyoutuber})
     
+# def news()

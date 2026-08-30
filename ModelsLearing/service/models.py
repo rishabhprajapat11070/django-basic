@@ -1,10 +1,11 @@
 from django.db import models
+from tinymce.models import HTMLField 
 
 # Create your models here.
 
 class Service(models.Model):
     name =models.CharField( max_length=50)
-    discreption =models.TextField(max_length=1000)
+    discreption =HTMLField()
     salary = models.IntegerField()
 
 class FavYoutuber(models.Model):

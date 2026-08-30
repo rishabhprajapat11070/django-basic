@@ -12,4 +12,8 @@ class Favyoutuber(admin.ModelAdmin):
 
 admin.site.register(FavYoutuber,Favyoutuber)
 
-# Register your models here.
+
+
+
+
+
