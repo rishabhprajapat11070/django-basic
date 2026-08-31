@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
-def news
+# def news
 
 # Create your views here.

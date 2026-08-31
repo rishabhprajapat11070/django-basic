@@ -12,5 +12,12 @@
     {% for i in youtuber %}
     <div><i class="fa-brands fa-youtube"></i> {{i.name}} <br> subscriber </i> {{i.subcribers}}</div>  
     {% endfor %}
+
+    <marquee>
+        {% for i in youtuber %}
+        {{i.name}}          
+        {% endfor %}
+
+    </marquee>
 </body>
 </html>
